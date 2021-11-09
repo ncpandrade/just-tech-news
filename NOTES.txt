@@ -13,3 +13,8 @@ Test the routes to make sure everything works as intended.
 -use insomnia
 
 Repeat with new model.
+
+Secure Password using Hashing
+-npm install bcrypt
+-add to the user.js file (where the user is created)
+-we can use special Sequelize functions called hooks in the model. Also known as lifecycle events, hooks are functions that are called before or after calls in Sequelize
