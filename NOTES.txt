@@ -18,3 +18,4 @@ Secure Password using Hashing
 -npm install bcrypt
 -add to the user.js file (where the user is created)
 -we can use special Sequelize functions called hooks in the model. Also known as lifecycle events, hooks are functions that are called before or after calls in Sequelize
+-A GET method carries the request parameter appended in the URL string, whereas a POST method carries the request parameter in req.body, which makes it a more secure way of transferring data from the client to the server. Remember, the password is still in plaintext, which makes this transmission process a vulnerable link in the chain.
