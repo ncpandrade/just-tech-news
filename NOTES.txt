@@ -1,0 +1,15 @@
+The steps we followed in this lesson are the same ones developers take regularly:
+
+Model the data.
+-user.js
+-connection.js
+
+Set up API routes to work with that data.
+-user-routes.js
+-api/index.js
+-routes/indes.js
+
+Test the routes to make sure everything works as intended.
+-use insomnia
+
+Repeat with new model.
