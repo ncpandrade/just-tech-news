@@ -1,13 +1,25 @@
 const express = require('express');
-//??? is this importing the whole directory routes??????
-const routes = require('./routes');
+
+const routes = require('./controllers');
 const sequelize = require('./config/connection');
+//access the style.css sheet
+const path = require('path');
+//require handlebar
+const exphbs = require('express-handlebars');
+const hbs = exphbs.create({});
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+//set up handlebar as this app's tamplte engine
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+//access stylesheet
+//The express.static() method is a built-in Express.js middleware function that can take all of the contents of a folder and serve them as static assets. 
+app.use(express.static(path.join(__dirname, 'public')));
 
 // turn on routes
 app.use(routes);
@@ -15,5 +27,5 @@ app.use(routes);
 // turn on connection to db and server
 //The "sync" part means that this is Sequelize taking the models and connecting them to associated database tables.
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log('Now listening on Port' ,{PORT}));
 });
