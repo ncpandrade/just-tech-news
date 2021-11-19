@@ -6,7 +6,10 @@ const sequelize = require('./config/connection');
 const path = require('path');
 //require handlebar
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
+//import helpers file to be used with handlebars
+const helpers = require('./utils/helpers');
+//pass helper to the handlebars
+const hbs = exphbs.create({ helpers });
 
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -24,6 +27,8 @@ const sess = {
     db: sequelize
   })
 };
+
+
 
 app.use(session(sess));
 

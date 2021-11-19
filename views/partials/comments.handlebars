@@ -1,0 +1,14 @@
+ {{!-- "this" is being looped over, all of the expressions within the loop look for properties on each object in this --}}
+ {{!-- we can use the trusty keyword this to refer to the parent object or array --}}
+<div class="comments">
+  {{#each this}}
+  <section class="comment">
+    <div class="meta">
+      {{user.username}} on {{format_date created_at}}
+    </div>
+    <div class="text">
+      {{comment_text}}
+    </div>
+  </section>
+  {{/each}}
+</div>
